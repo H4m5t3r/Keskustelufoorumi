@@ -1,2 +1,2 @@
-# Heading 1
-Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirjautua ja osallistua keskusteluihin.
+# Keskustelufoorumi
+Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirjautua ja osallistua keskusteluihin. Suunnitelmani on toteuttaa toiminnot joita oli listattu materiaalin esimerkissä.

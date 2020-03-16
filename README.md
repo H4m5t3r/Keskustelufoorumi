@@ -11,6 +11,10 @@ Suunnitellut toiminnot:
 *  []
 * Kirjoitusten poistaminen []
 * Aiheiden määrittely, muokkaus ja poisto []
+* [x] Task 1
+* [x] Task 2
+* [ ] Task 3
+
 
 #### Hyödylliset linkit:
 [Tietokantakaavio](https://raw.githubusercontent.com/H4m5t3r/Keskustelufoorumi/master/documentation/Tietokantasovellus%20tietokantakaavio.png)

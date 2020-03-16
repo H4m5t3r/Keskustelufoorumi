@@ -3,12 +3,25 @@
 {% block body %}
   <table>
     <tr>
-      <th>Messages</th>
+      <th>Posted</th>
+      <th>Message</th>
+      <th>Liked</th>
     </tr>
     {% for message in message %}
     <tr>
       <td>{{ message.date_created }}</td>
       <td>{{ message.name }}</td>
+      <td>{{ message.liked }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
+	  <input type="submit" value="Like!"/>
+	</form>
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('messages_set_unlike', message_id=message.id) }}">
+	  <input type="submit" value="Unlike"/>
+	</form>
+      </td>
     </tr>
     {% endfor %}
   </table>

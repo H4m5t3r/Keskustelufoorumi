@@ -10,6 +10,24 @@ def messages_index():
 def messages_form():
     return render_template("messages/new.html")
 
+@app.route("/messages/like/<message_id>/", methods=["POST"])
+def messages_set_liked(message_id):
+
+    t = Message.query.get(message_id)
+    t.liked = True
+    db.session().commit()
+  
+    return redirect(url_for("messages_index"))
+
+@app.route("/messages/unlike/<message_id>/", methods=["POST"])
+def messages_set_unlike(message_id):
+
+    t = Message.query.get(message_id)
+    t.liked = False
+    db.session().commit()
+  
+    return redirect(url_for("messages_index"))
+
 @app.route("/messages/", methods=["POST"])
 def messages_create():
     t = Message(request.form.get("name"))

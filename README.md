@@ -4,16 +4,13 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 Suunnitellut toiminnot:
 
 * [ ] Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen
-* Kirjautuminen []
-* Viestien lisääminen [x]
-* Vastausten lisääminen []
-* Kirjoitusten näyttäminen eri kriteerein []
-*  []
-* Kirjoitusten poistaminen []
-* Aiheiden määrittely, muokkaus ja poisto []
-* [x] Task 1
-* [x] Task 2
-* [ ] Task 3
+* [ ] Kirjautuminen
+* [x] Viestien lisääminen
+* [ ] Vastausten lisääminen
+* [ ] Kirjoitusten näyttäminen eri kriteerein
+*  [ ]
+* [ ] Kirjoitusten poistaminen
+* [ ] Aiheiden määrittely, muokkaus ja poisto
 
 
 #### Hyödylliset linkit:

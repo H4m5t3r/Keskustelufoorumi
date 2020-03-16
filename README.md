@@ -3,7 +3,7 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 
 Suunnitellut toiminnot:
 
-* Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen [ ]
+* [ ] Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen
 * Kirjautuminen []
 * Viestien lisääminen [x]
 * Vastausten lisääminen []

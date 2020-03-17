@@ -1,14 +1,14 @@
 # Keskustelufoorumi
 Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirjautua ja osallistua keskusteluihin.
 
-Suunnitellut toiminnot:
+### Suunnitellut toiminnot:
 
 * [ ] Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen
 * [ ] Kirjautuminen
 * [x] Viestien lisääminen
 * [ ] Vastausten lisääminen
 * [ ] Kirjoitusten näyttäminen eri kriteerein
-*  [ ]
+* [ ] Vastineen laatiminen ja muokkaus
 * [ ] Kirjoitusten poistaminen
 * [ ] Aiheiden määrittely, muokkaus ja poisto
 

@@ -14,12 +14,12 @@
       <td>{{ message.liked }}</td>
       <td>
         <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
-	  <input type="submit" value="Like!"/>
+	  <input type="submit" value="Like"/>
 	</form>
       </td>
       <td>
         <form method="POST" action="{{ url_for('messages_set_unlike', message_id=message.id) }}">
-	  <input type="submit" value="Unlike"/>
+	  <input type="submit" value="Dislike"/>
 	</form>
       </td>
     </tr>

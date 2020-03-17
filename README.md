@@ -14,6 +14,8 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 
 
 #### Hyödylliset linkit:
+[User storyt](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
+
 [Tietokantakaavio](https://raw.githubusercontent.com/H4m5t3r/Keskustelufoorumi/master/documentation/Tietokantasovellus%20tietokantakaavio.png)
 
 [Toimiva Heroku-sovellus](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)

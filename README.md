@@ -6,13 +6,16 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 * [ ] Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen
 * [ ] Kirjautuminen
 * [x] Viestien lisääminen
-* [ ] Vastausten lisääminen
-* [ ] Kirjoitusten näyttäminen eri kriteerein
-* [ ] Vastineen laatiminen ja muokkaus
-* [ ] Kirjoitusten poistaminen 
 * [ ] Aiheiden määrittely, muokkaus ja poisto
+* [ ] Viestien näyttäminen eri kriteerein
+* [ ] Vastausten lisääminen
+* [ ] Viestien poistaminen 
 
-Tällä hetkellä käyttäjä voi lisätä viestejä tietokantaan ja listata kaikki viestit. Lisäsin tykkäys-toiminto jonka ehkä poistan myöhemmässä vaiheessa. Halusin vain varmistaa että tietokannan tietoa voi muuttaa.
+### Osa 1
+Aihe valittu ja GitHub-repositorio luotu. Mukana myös tietokantakaavio.
+
+### Osa 2
+Tällä hetkellä käyttäjä voi lisätä viestejä tietokantaan ja listata kaikki viestit. Lisäsin tykkäys-toiminnon jonka varmasti muokkaan myöhemmässä vaiheessa (esimerkiksi niin että voi nähdä kuinka monta käyttäjää on tykännyt viestistä). Tässä vaiheessa halusin vain varmistaa että tietokannan tietoa voi muuttaa. Esimerkkejä User stories-tiedostossa.
 
 #### Hyödylliset linkit:
 [User storyt](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)

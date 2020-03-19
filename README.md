@@ -9,7 +9,7 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 * [ ] Vastausten lisääminen
 * [ ] Kirjoitusten näyttäminen eri kriteerein
 * [ ] Vastineen laatiminen ja muokkaus
-* [ ] Kirjoitusten poistaminen
+* [ ] Kirjoitusten poistaminen 
 * [ ] Aiheiden määrittely, muokkaus ja poisto
 
 Tällä hetkellä käyttäjä voi lisätä viestejä tietokantaan ja listata kaikki viestit. Lisäsin tykkäys-toiminto jonka ehkä poistan myöhemmässä vaiheessa. Halusin vain varmistaa että tietokannan tietoa voi muuttaa.

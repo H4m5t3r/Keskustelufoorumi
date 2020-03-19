@@ -12,6 +12,7 @@ Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirj
 * [ ] Kirjoitusten poistaminen
 * [ ] Aiheiden määrittely, muokkaus ja poisto
 
+Tällä hetkellä käyttäjä voi vain lisätä viestejä tietokantaan ja listata kaikki viestit. Lisäsin tykkäys-toiminto jonka ehkä poistan myöhemmässä vaiheessa. Halusin vain varmistaa että tietokannan tietoa voi muuttaa.
 
 #### Hyödylliset linkit:
 [User storyt](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)

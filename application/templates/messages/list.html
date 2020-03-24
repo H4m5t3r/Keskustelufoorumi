@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Posted</th>
-      <th>Message</th>
-      <th>Liked</th>
-    </tr>
+<b>Messages</b><br>
+<br>
+  
     {% for message in message %}
+    <table>
     <tr>
+      <th>{{ message.name }}</th>
       <td>{{ message.date_created }}</td>
-      <td>{{ message.name }}</td>
       <td>{{ message.liked }}</td>
       <td>
         <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
@@ -23,6 +21,10 @@
 	</form>
       </td>
     </tr>
-    {% endfor %}
   </table>
+      <t>{{ message.messagetext }}</t>
+      <br>
+      <br>
+    {% endfor %}
+  
 {% endblock %}

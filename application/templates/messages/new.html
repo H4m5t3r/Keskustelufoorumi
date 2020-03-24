@@ -1,9 +1,19 @@
 {% extends "layout.html" %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('messages_create') }}">
-  <input type="text" name="name"/>
-  <input type="text" name="messagetext"/>
-  <input type="submit" value="Add a new message"/>
+<table>
+  <tr>
+    <th></th>
+    <th>Message name</th>
+    <th>Text</th>
+  </tr>
+  <tr>
+    <td><form method="POST" action="{{ url_for('messages_create') }}"></td>
+    <td><input type="text" name="name"/></td>
+    <td><input type="text" name="messagetext"/></td>
+    <td><input type="submit" value="Add a new message"/></td>
 </form>
+  </tr>
+</table>
+
 {% endblock %}

@@ -30,7 +30,7 @@ def messages_set_unlike(message_id):
 
 @app.route("/messages/", methods=["POST"])
 def messages_create():
-    t = Message(request.form.get("name"))
+    t = Message(request.form.get("name"), request.form.get("messagetext"))
 
     db.session().add(t)
     db.session().commit()

@@ -3,12 +3,14 @@ from application import db
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-    onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
+    messagetext = db.Column(db.String(144), nullable=False)
     liked = db.Column(db.Boolean, nullable=False)
+    likes = db.Column(db.Integer, nullable=False)
 
-    def __init__(self, name):
+    def __init__(self, name, messagetext):
         self.name = name
+        self.messagetext = messagetext
         self.liked = False
+        self.likes = 0

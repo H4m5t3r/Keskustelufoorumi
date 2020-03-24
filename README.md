@@ -22,6 +22,4 @@ Tällä hetkellä käyttäjä voi lisätä viestejä tietokantaan ja listata kai
 
 [Tietokantakaavio](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Tietokantakaavio%20(Suunnitelma).png)
 
-[SQL-skeema](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/SQL-skeema%20(Suunnitelma).sql)
-
 [Toimiva Heroku-sovellus](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)

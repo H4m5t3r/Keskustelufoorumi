@@ -1,6 +1,8 @@
+from flask import render_template, request, redirect, url_for
+
 from application import app, db
-from flask import redirect, render_template, request, url_for
 from application.messages.models import Message
+from application.messages.forms import MessageForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
@@ -8,7 +10,7 @@ def messages_index():
 
 @app.route("/messages/new/")
 def messages_form():
-    return render_template("messages/new.html")
+    return render_template("messages/new.html", form = MessageForm())
 
 @app.route("/messages/like/<message_id>/", methods=["POST"])
 def messages_set_liked(message_id):
@@ -30,8 +32,13 @@ def messages_set_unlike(message_id):
 
 @app.route("/messages/", methods=["POST"])
 def messages_create():
-    t = Message(request.form.get("name"), request.form.get("messagetext"))
+    form = MessageForm(request.form)
 
+    if not form.validate():
+        return render_template("messages/new.html", form = form)
+
+    t = Message(form.name.data, form.messagetext.data)
+  
     db.session().add(t)
     db.session().commit()
   

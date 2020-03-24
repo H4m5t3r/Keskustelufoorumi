@@ -1,19 +1,36 @@
-{% extends "layout.html" %}
-  
-{% block body %}
-<table>
-  <tr>
-    <th></th>
-    <th>Message name</th>
-    <th>Text</th>
-  </tr>
-  <tr>
-    <td><form method="POST" action="{{ url_for('messages_create') }}"></td>
-    <td><input type="text" name="name"/></td>
-    <td><input type="text" name="messagetext"/></td>
-    <td><input type="submit" value="Add a new message"/></td>
-</form>
-  </tr>
-</table>
+  {% extends "layout.html" %}
 
-{% endblock %}
+  {% block body %}
+  <form method="POST" action="{{ url_for('messages_create') }}">
+    <table>
+      <tr>
+        <td>
+          {{ form.name.label }}
+        </td>
+        <td>
+          {{ form.name }}
+                
+        </td>
+        <td>
+          <ul>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        {{ form.messagetext.label }}
+        </td>
+        <td>
+        {{ form.messagetext }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Add a new message"/>
+        </td>
+      </tr>
+  </form>
+  {% endblock %}

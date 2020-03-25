@@ -9,7 +9,6 @@
         </td>
         <td>
           {{ form.name }}
-                
         </td>
         <td>
           <ul>
@@ -25,6 +24,13 @@
         </td>
         <td>
         {{ form.messagetext }}
+        </td>
+        <td>
+          <ul>
+            {% for error in form.messagetext.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
         </td>
       </tr>
       <tr>

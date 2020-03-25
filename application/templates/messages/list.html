@@ -9,17 +9,32 @@
     <tr>
       <th>{{ message.name }}</th>
       <td>{{ message.date_created }}</td>
-      <td>{{ message.liked }}</td>
+      {% if message.liked %}
+      <td>Liked</td>
+      {% else %}
+      <td>Not liked</td>
+      {% endif %}
+
+      {% if current_user.is_authenticated %}
       <td>
         <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
-	  <input type="submit" value="Like"/>
-	</form>
+          <input type="submit" value="Like"/>
+        </form>
       </td>
       <td>
         <form method="POST" action="{{ url_for('messages_set_unlike', message_id=message.id) }}">
-	  <input type="submit" value="Dislike"/>
-	</form>
+          <input type="submit" value="Dislike"/>
+        </form>
       </td>
+      <td>
+      {% if current_user.id==message.account_id %}
+        <form method="POST" action="{{ url_for('messages_delete', message_id=message.id, 
+        user_id=current_user.id) }}">
+          <input type="submit" value="X"/>
+        </form>
+      </td>
+      {% endif %}
+      {% endif %}
     </tr>
   </table>
       <t>{{ message.messagetext }}</t>

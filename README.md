@@ -36,3 +36,7 @@ Planned features:
 [Database diagram](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Database%20diagram.png)
 
 [Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
+
+Login details for the test account:
+Username: name
+Password: 123

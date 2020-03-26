@@ -1,25 +1,37 @@
-# Keskustelufoorumi
-Tässä projektityössä toteutan keskustelufoorumin missä käyttäjä voi kirjautua ja osallistua keskusteluihin.
+# Chat forum
+In this project I will create a chat forum where the user can sign in and send messages.
 
-### Suunnitellut toiminnot:
+### Planned features:
+Users will be able to
+* [ ] create, edit and delete an account
+* [x] sign in
+* [x] add messages
+* [ ] create and edit subjects
+* [ ] filter messages by subjects
+* [ ] add answers to other messages
+* [ ] delete their own messages
+* [ ] like or dislike other users' messages
 
-* [ ] Foorumin jäsenen lisääminen, muokkaaminen ja poistaminen
-* [ ] Kirjautuminen
-* [x] Viestien lisääminen
-* [ ] Aiheiden määrittely, muokkaus ja poisto
-* [ ] Viestien näyttäminen eri kriteerein
-* [ ] Vastausten lisääminen
-* [ ] Viestien poistaminen 
+### Part 1
+The subject for the project has been chosen and a GitHub repository has been created. A database diagram was also added.
 
-### Osa 1
-Aihe valittu ja GitHub-repositorio luotu. Mukana myös tietokantakaavio.
+### Part 2
+At the moment the user can add messages to the database and list all messages. I added a like button which I probably will make changes to later. A better way of implementing it could be to store how many people have liked a certain message as an integer instead of just having a boolean variable. I just wanted to make sure that the data in the database could be changed. Examples of user cases have been added to the file named "User stories".
 
-### Osa 2
-Tällä hetkellä käyttäjä voi lisätä viestejä tietokantaan ja listata kaikki viestit. Lisäsin tykkäys-toiminnon jonka varmasti muokkaan myöhemmässä vaiheessa (esimerkiksi niin että voi nähdä kuinka monta käyttäjää on tykännyt viestistä). Tässä vaiheessa halusin vain varmistaa että tietokannan tietoa voi muuttaa. Esimerkkejä User stories-tiedostossa.
+### Part 3
+Changes:
+* The user can now create an account and sign in with their user details.
+* Validators have been added to the forms that are used for writing a message and creating a new account. These validators check that none of the text fields are empty.
+* Writing a message now also requires the user to be signed in.
 
-#### Hyödylliset linkit:
-[User storyt](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
+Planned features:
+* A button for removing a message is planned, but has not been completed yet. This feature has been temporarily removed because it made the application malfunction.
+* An option to edit a message
+* An anministrator account may be added in during the coming weeks. This account would be able to delete a message even if it has not been created with it.
 
-[Tietokantakaavio](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Tietokantakaavio%20(Suunnitelma).png)
+#### Useful links:
+[User stories](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
 
-[Toimiva Heroku-sovellus](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
+[Database diagram](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Database_diagram.png)
+
+[Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)

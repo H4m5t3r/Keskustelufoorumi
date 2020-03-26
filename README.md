@@ -23,7 +23,7 @@ Changes:
 * The user can now create an account and sign in with their user details.
 * Validators have been added to the forms that are used for writing a message and creating a new account. These validators check that none of the text fields are empty.
 * Writing a message now also requires the user to be signed in.
-* An integer called "likes" has been added to the database where the messages are stored. It is currently not used for anything but could be used to increment the amount of likes the message has.
+* An integer called "likes" has been added to the database where the messages are stored. It is currently not used for anything but could be used to increment the amount of likes a message has.
 
 Planned features:
 * A button for removing a message is planned, but has not been completed yet. This feature has been temporarily removed because it made the application malfunction.

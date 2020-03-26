@@ -37,6 +37,8 @@ Planned features:
 
 [Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
 
-Login details for the test account:
+**Login details for the test account:**
+
 Username: name
+
 Password: 123

@@ -19,6 +19,7 @@ As a signed in user I can create and edit subjects.
 As a user I can filter messages by their subject.
 
 **As an administrator I have privileges**
+
 As an administrator I can delete messages even if I am not the one who posted them.
 
 As an administrator I can edit or delete subjects.

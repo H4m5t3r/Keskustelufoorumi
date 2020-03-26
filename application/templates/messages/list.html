@@ -26,14 +26,6 @@
           <input type="submit" value="Dislike"/>
         </form>
       </td>
-      <td>
-      {% if current_user.id==message.account_id %}
-        <form method="POST" action="{{ url_for('messages_delete', message_id=message.id, 
-        user_id=current_user.id) }}">
-          <input type="submit" value="X"/>
-        </form>
-      </td>
-      {% endif %}
       {% endif %}
     </tr>
   </table>

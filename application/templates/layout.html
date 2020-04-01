@@ -21,6 +21,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('messages_form') }} ">Add a message</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('categories_form') }} ">Add a category</a>
+                </li>
               </ul>
               <div class="form-inline mt-2 mt-md-0">
             {% if current_user.is_authenticated %}

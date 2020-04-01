@@ -50,3 +50,12 @@ def messages_create():
   
     return redirect(url_for("messages_index"))
 
+
+@app.route("/messages/delete/<message_id>/", methods=["POST"])
+@login_required
+def messages_delete(message_id):
+    dele = Message.query.filter_by(id=message_id).first()
+    db.session.delete(dele)
+    db.session.commit()
+
+    return redirect(url_for("messages_index"))

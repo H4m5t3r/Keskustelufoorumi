@@ -11,7 +11,7 @@ from application.messages.forms import UserFilterForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
-    return render_template("messages/list.html", message = Message.query.all())
+    return render_template("messages/list.html", message = Message.query.all(), account = User.query.all())
 
 
 

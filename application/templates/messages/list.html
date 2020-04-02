@@ -14,6 +14,11 @@
     <table>
     <tr>
       <th>{{ message.name }}</th>
+      {% for user in account %}
+        {% if user.id==message.account_id %}
+        <td>{{ user.name }}</td>
+        {% endif %}
+      {% endfor %}
       <td>{{ message.date_created }}</td>
       {% if message.liked %}
       <td>Liked</td>

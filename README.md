@@ -9,8 +9,29 @@ Users will be able to
 * [ ] create and edit subjects
 * [ ] filter messages by subjects
 * [ ] add answers to other messages
-* [ ] delete their own messages
+* [x] delete their own messages
 * [ ] like or dislike other users' messages
+
+### Useful links:
+[User stories](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
+
+[Database diagram](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Database%20diagram.png)
+
+[Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
+
+**Login details for the test account:**
+
+Username: name
+
+Password: 123
+
+**Login details for the administrator account:**
+
+Username: admin
+
+Password: unlimitedpower
+
+## Weekly reports
 
 ### Part 1
 The subject for the project has been chosen and a GitHub repository has been created. A database diagram was also added.
@@ -32,18 +53,13 @@ Planned features:
 
 ### Part 4
 Changes/new features
-* Bootstrap assets have been used to update the app's visual look
-* 
+* Bootstrap assets have been used to update the app's visual look.
+* You can now list how many messages each user has written.
+* Messages can now be deleted by the user who wrote them.
+* An administrator account has been added. It has permission to delete all messages on the chat forum.
+* Users who are logged in can add subjects. The option to add a subject to a message was not completed in time for this week's deadline.
 
-#### Useful links:
-[User stories](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
-
-[Database diagram](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Database%20diagram.png)
-
-[Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
-
-**Login details for the test account:**
-
-Username: name
-
-Password: 123
+Planned features/notes
+* A feature to filter the messages by a specified user is planned, but has not been completed yet.
+* The option to edit a message has not been added yet.
+* The like function still only exists in the boolean format because there was not enough time for working on it this week. The plan is to make it work similarly to like functions on websites like Facebook and YouTube.

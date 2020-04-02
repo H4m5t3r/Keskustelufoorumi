@@ -63,3 +63,4 @@ Planned features/notes
 * A feature to filter the messages by a specified user is planned, but has not been completed yet.
 * The option to edit a message has not been added yet.
 * The like function still only exists in the boolean format because there was not enough time for working on it this week. The plan is to make it work similarly to like functions on websites like Facebook and YouTube.
+* I noticed a bug that sometimes causes the order of the messages to change when they are listed. This happens when the like function is used. I will have to look into this.

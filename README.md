@@ -6,8 +6,8 @@ Users will be able to
 * [ ] create, edit and delete an account
 * [x] sign in
 * [x] add messages
-* [ ] create and edit subjects
-* [ ] filter messages by subjects
+* [ ] create and edit message categories
+* [ ] filter messages by their category
 * [ ] add answers to other messages
 * [x] delete their own messages
 * [ ] like or dislike other users' messages
@@ -57,7 +57,7 @@ Changes/new features
 * You can now list how many messages each user has written.
 * Messages can now be deleted by the user who wrote them.
 * An administrator account has been added. It has permission to delete all messages on the chat forum.
-* Users who are logged in can add subjects. The option to add a subject to a message was not completed in time for this week's deadline.
+* Users who are logged in can add message categories. The option to add a category to a message was not completed in time for this week's deadline.
 
 Planned features/notes
 * A feature to filter the messages by a specified user is planned, but has not been completed yet.

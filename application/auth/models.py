@@ -7,7 +7,7 @@ class User(Base):
 
     __tablename__ = "account"
 
-    username = db.Column(db.String(144), nullable=False)
+    username = db.Column(db.String(144), nullable=False, unique=True)
     password = db.Column(db.String(144), nullable=False)
 
     messages = db.relationship("Message", backref='account', lazy=True)

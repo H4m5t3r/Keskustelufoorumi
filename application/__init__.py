@@ -2,6 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
 
 import os
 
@@ -13,6 +14,7 @@ else:
 
 
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 
 #functionality imports
 from application import views

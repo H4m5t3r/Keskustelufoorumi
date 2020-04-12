@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<body>
+<ul>
 <form method="POST" action="{{ url_for('categories_create') }}">
   <table>
     <tr>
@@ -27,8 +29,10 @@
   </tr>
   {% for category in categories %}
   <tr>
-    <td>{{ category.name }}</td>
+    <td><li>{{ category.name }}</li></td>
   </tr>
   {% endfor %}
 </table>
+</ul>
+</body>
 {% endblock %}

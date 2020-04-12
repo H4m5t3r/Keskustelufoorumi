@@ -1,9 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, validators
+from wtforms import BooleanField, StringField, TextAreaField, validators
 
 class MessageForm(FlaskForm):
-    name = StringField("Message name", [validators.Length(min=1)])
-    messagetext = StringField("Text", [validators.Length(min=1)])
+    name = StringField("Message name", [validators.Length(min=1, max=20)])
+    messagetext = TextAreaField("Text", [validators.Length(min=1, max=2000)])
 
     class Meta:
         csrf = False

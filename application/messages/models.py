@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from application.categories.models import Category
 
 class Message(db.Model):
 
@@ -15,6 +16,8 @@ class Message(db.Model):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('category.id'),
+                            nullable=False)
 
     def __init__(self, name, messagetext):
         self.name = name

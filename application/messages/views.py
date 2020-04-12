@@ -78,6 +78,7 @@ def messages_create():
 
     t = Message(form.name.data, form.messagetext.data)
     t.account_id = current_user.id
+    t.category_id = request.form['category_id']
 
     db.session().add(t)
     db.session().commit()

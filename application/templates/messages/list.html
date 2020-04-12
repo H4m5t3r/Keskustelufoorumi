@@ -3,13 +3,14 @@
 {% block body %}
 <ul>
   <li><a href="{{ url_for('messages_count') }}">Count how many messages each user has written</a></li>
-</ul>
-<b>Messages</b><br>
 <br>
-  
+<h3>Messages</h3>
     {% for message in message %}
     <table>
     <tr>
+      <td><a href="{{ url_for('messages_view_message', 
+        message_id=message.id, 
+        writer_id=message.account_id, category_id=message.category_id) }}">{{ message.name }}</a></td>
       <th>{{ message.name }}</th>
       {% for user in account %}
         {% if user.id==message.account_id %}
@@ -54,7 +55,6 @@
   </table>
       <t>{{ message.messagetext }}</t>
       <br>
-      <br>
     {% endfor %}
-  
+  </ul>
 {% endblock %}

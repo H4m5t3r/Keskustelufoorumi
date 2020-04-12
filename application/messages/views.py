@@ -6,6 +6,7 @@ from sqlalchemy.sql import text
 from application import app, db
 from application.messages.models import Message
 from application.auth.models import User
+from application.categories.models import Category
 from application.messages.forms import MessageForm
 from application.messages.forms import UserFilterForm
 
@@ -13,7 +14,12 @@ from application.messages.forms import UserFilterForm
 def messages_index():
     return render_template("messages/list.html", message = Message.query.all(), account = User.query.all())
 
-
+@app.route("/messages/view/<message_id>/<writer_id>/<category_id>", methods=["GET"])
+def messages_view_message(message_id, writer_id, category_id):
+    return render_template("messages/view_message.html", 
+    message = Message.query.filter_by(id=message_id).first(), 
+    account = User.query.filter_by(id=writer_id).first(), 
+    category = Category.query.filter_by(id=category_id).first())
 
 #YET TO BE COMPLETED
 

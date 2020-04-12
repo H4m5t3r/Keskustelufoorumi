@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+<ul>
+    <a href="{{ url_for('messages_index') }}"><— Back</a>
+    <h3>{{ message.name }}</h3>
+    <table>
+        {% if category.id == 1 %}
+        No category
+        {% else %}
+        Category: {{ category.name }}
+        {% endif %}
+        <tr>
+          <td><p>{{ account.name }}  {{ message.date_created }}</p></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            
+        </tr>
+    </table>
+    <p>{{ message.messagetext }}</p>
+
+    <table>
+        {% if current_user.is_authenticated %}
+        <td>
+          <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
+            <input type="submit" value="Like"/>
+          </form>
+        </td>
+        <td>
+          <form method="POST" action="{{ url_for('messages_set_unlike', message_id=message.id) }}">
+            <input type="submit" value="Dislike"/>
+          </form>
+        </td>
+        {% if current_user.id==message.account_id %}
+        <td>
+          <form method="POST" action="{{ url_for('messages_delete', message_id=message.id) }}">
+            <input type="submit" value="Delete message"/>
+          </form>
+        </td>
+        {% else %}
+          {% if current_user.id==1 %}
+          <td>
+            <form method="POST" action="{{ url_for('messages_delete', message_id=message.id) }}">
+              <input type="submit" value="Delete message"/>
+            </form>
+          </td>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    </table>
+
+</ul>
+</body>
+{% endblock %}

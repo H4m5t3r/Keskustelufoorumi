@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user
 
 from application import app, db, bcrypt
@@ -47,6 +47,7 @@ def auth_create():
   
     db.session().add(t)
     db.session().commit()
-  
+
+    flash('Your account was successfully created')
     return redirect(url_for("auth_login"))
 

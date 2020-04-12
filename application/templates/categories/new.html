@@ -4,12 +4,8 @@
 <form method="POST" action="{{ url_for('categories_create') }}">
   <table>
     <tr>
-      <td>
-        {{ form.name.label }}
-      </td>
-      <td>
-        {{ form.name }}
-      </td>
+      <td>{{ form.name.label }}</td>
+      <td> {{ form.name }}</td>
       <td>
         <ul>
           {% for error in form.name.errors %}
@@ -29,11 +25,9 @@
   <tr class="label">
     <th>{{ 'Already existing categories' }}</th>
   </tr>
-  {% for category in category %}
+  {% for category in categories %}
   <tr>
-    <td>
-      {{ category.name }}
-    </td>
+    <td>{{ category.name }}</td>
   </tr>
   {% endfor %}
 </table>

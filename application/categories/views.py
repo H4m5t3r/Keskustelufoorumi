@@ -8,7 +8,7 @@ from application.categories.forms import CategoryForm
 @app.route("/categories/new/")
 @login_required
 def categories_form():
-    return render_template("categories/new.html", form = CategoryForm())
+    return render_template("categories/new.html", form = CategoryForm(), categories = Category.query.all())
 
 @app.route("/categories/", methods=["POST"])
 @login_required
@@ -24,4 +24,4 @@ def categories_create():
     db.session().add(t)
     db.session().commit()
   
-    return redirect(url_for("messages_index"))
+    return redirect(url_for("categories_form"))

@@ -21,12 +21,12 @@
         </tr>
     </table>
     <p>{{ message.messagetext }}</p>
-
+    <p>Likes: {{ message.likes }}</p>
     <table>
         {% if current_user.is_authenticated %}
         <td>
-          <form method="POST" action="{{ url_for('messages_set_liked', message_id=message.id) }}">
-            <input type="submit" value="Like"/>
+          <form method="POST" action="{{ url_for('likes_like', message_id=message.id) }}">
+            <input type="submit" value="Like/Remove your like"/>
           </form>
         </td>
         <td>

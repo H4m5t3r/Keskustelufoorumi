@@ -7,7 +7,7 @@ from application import app, db
 from application.messages.models import Message
 from application.auth.models import User
 from application.categories.models import Category
-from application.messages.forms import MessageForm
+from application.messages.forms import MessageForm, EditMessageForm
 from application.messages.forms import UserFilterForm
 
 @app.route("/messages", methods=["GET"])
@@ -54,6 +54,17 @@ def messages_filteruser():
 def messages_form():
     return render_template("messages/new.html", form = MessageForm())
 
+
+@app.route("/messages/editform/<message_id>", methods=["GET", "POST"])
+@login_required
+def messages_edit_form(message_id):
+    m = Message.query.filter_by(id=message_id).first()
+    preset = EditMessageForm()
+    preset.messagetext.data = m.messagetext
+    preset.category_id.data = m.category_id
+    return render_template("messages/edit.html", form = preset, message_id = m.id)
+
+
 @app.route("/messages/like/<message_id>/", methods=["POST"])
 @login_required
 def messages_set_liked(message_id):
@@ -92,6 +103,18 @@ def messages_create():
     return redirect(url_for("messages_index"))
 
 
+
+@app.route("/messages/edit/<message_id>/", methods=["POST"])
+@login_required
+def messages_edit(message_id):
+    form = EditMessageForm(request.form)
+    edit = Message.query.filter_by(id=message_id).first()
+    edit.messagetext = form.messagetext.data
+    edit.category_id = request.form['category_id']
+    db.session().commit()
+    return redirect(url_for("messages_index"))
+
+
 @app.route("/messages/delete/<message_id>/", methods=["POST"])
 @login_required
 def messages_delete(message_id):
@@ -100,7 +123,6 @@ def messages_delete(message_id):
     db.session.commit()
 
     return redirect(url_for("messages_index"))
-
 
 
 @app.route('/messages/count')

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+<ul>
+<form method="POST" action="{{ url_for('messages_edit', message_id=message_id) }}">
+  <table>
+    
+    <tr>
+      <td>{{ form.messagetext.label }}</td>
+      <td>{{ form.messagetext }}</td>
+      <td>
+        <ul>
+          {% for error in form.messagetext.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>{{ form.category_id.label }}</td>
+      <td>{{ form.category_id }}</td>
+      <td>
+        <ul>
+          {% for error in form.category_id.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Confirm changes"/>
+      </td>
+    </tr>
+</form>
+</ul>
+</body>
+{% endblock %}

@@ -16,6 +16,17 @@ class MessageForm(FlaskForm):
     class Meta:
         csrf = False
 
+
+class EditMessageForm(FlaskForm):
+    messagetext = TextAreaField("Text", [validators.Length(min=1, max=2000)])
+    
+    category_id = QuerySelectField("Category", get_label="name",
+        query_factory = lambda: models.Category.query.all())
+
+    class Meta:
+        csrf = False
+
+
 class UserFilterForm(FlaskForm):
     user = StringField("Name of the user", [validators.Length(min=1)])
  

@@ -30,11 +30,6 @@
           </form>
         </td>
         <td>
-          <form method="POST" action="{{ url_for('messages_set_unlike', message_id=message.id) }}">
-            <input type="submit" value="Dislike"/>
-          </form>
-        </td>
-        <td>
           <form method="POST" action="{{ url_for('answers_form', message_id=message.id) }}">
             <input type="submit" value="Add an answer"/>
           </form>

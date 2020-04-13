@@ -7,6 +7,7 @@ from application import app, db
 from application.messages.models import Message
 from application.auth.models import User
 from application.categories.models import Category
+from application.answers.models import Answer
 from application.messages.forms import MessageForm, EditMessageForm
 from application.messages.forms import UserFilterForm
 
@@ -19,7 +20,9 @@ def messages_view_message(message_id, writer_id, category_id):
     return render_template("messages/view_message.html", 
     message = Message.query.filter_by(id=message_id).first(), 
     account = User.query.filter_by(id=writer_id).first(), 
-    category = Category.query.filter_by(id=category_id).first())
+    category = Category.query.filter_by(id=category_id).first(), 
+    answers = Answer.query.filter_by(message_id=message_id),
+    answerwriters = User.query.all())
 
 #YET TO BE COMPLETED
 

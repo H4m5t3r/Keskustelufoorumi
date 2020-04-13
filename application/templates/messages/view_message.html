@@ -62,6 +62,27 @@
       {% endif %}
     </table>
 
+    <br>
+
+    <h4>Answers</h4>
+    {% for answer in answers %}
+    <table>
+      <tr>
+        <td><h5>{{ answer.name }}</h5></td>
+      </tr>
+      {% for writer in answerwriters %}
+      {% if writer.id == answer.account_id %}
+      <tr>
+        <td><p>{{ writer.name }} {{ answer.date_created }}</p></td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      <tr>
+        <td>{{ answer.answertext }}</td>
+      </tr>
+    </table>
+    <br>
+    {% endfor %}
 </ul>
 </body>
 {% endblock %}

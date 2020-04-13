@@ -5,12 +5,13 @@ In this project I will create a chat forum where the user can sign in and send m
 Users will be able to
 * [ ] create, edit and delete an account
 * [x] sign in
-* [x] add messages
+* [x] add and edit messages
 * [ ] create and edit message categories
 * [ ] filter messages by their category
 * [ ] add answers to other messages
 * [x] delete their own messages
 * [ ] like or dislike other users' messages
+* [x] get a summary of how many messages each user has written
 
 ### Useful links:
 [User stories](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)

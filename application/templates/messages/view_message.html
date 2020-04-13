@@ -34,6 +34,11 @@
             <input type="submit" value="Dislike"/>
           </form>
         </td>
+        <td>
+          <form method="POST" action="{{ url_for('answers_form', message_id=message.id) }}">
+            <input type="submit" value="Add an answer"/>
+          </form>
+        </td>
         {% if current_user.id==message.account_id %}
         <td>
           <form method="POST" action="{{ url_for('messages_delete', message_id=message.id) }}">

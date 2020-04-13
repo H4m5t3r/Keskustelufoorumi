@@ -6,7 +6,7 @@ from application.categories import models
 from application.categories.models import Category
 
 class MessageForm(FlaskForm):
-    name = StringField("Message name", [validators.Length(min=1, max=20)])
+    name = StringField("Title", [validators.Length(min=1, max=20)])
     
     messagetext = TextAreaField("Text", [validators.Length(min=1, max=2000)])
     

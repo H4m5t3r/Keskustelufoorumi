@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+<ul>
+<form method="POST" action="{{ url_for('answers_create', message_id=message_id) }}">
+  <table>
+    
+    <tr>
+      <td>{{ form.name.label }}</td>
+      <td>{{ form.name }}</td>
+      <td>
+        <ul>
+          {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>{{ form.answertext.label }}</td>
+      <td>{{ form.answertext }}</td>
+      <td>
+        <ul>
+          {% for error in form.answertext.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Add a new answer"/>
+      </td>
+    </tr>
+</form>
+</ul>
+</body>
+{% endblock %}

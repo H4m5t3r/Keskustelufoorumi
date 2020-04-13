@@ -10,7 +10,7 @@ Users will be able to
 * [ ] filter messages by their category
 * [x] add answers to other messages
 * [x] delete their own messages
-* [ ] like or dislike other users' messages
+* [x] like or remove their likes from other users' messages
 * [x] get a summary of how many messages each user has written
 
 ### Useful links:

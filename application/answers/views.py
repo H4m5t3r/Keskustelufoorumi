@@ -32,3 +32,13 @@ def answers_create(message_id):
     db.session().commit()
   
     return redirect(url_for("messages_index"))
+
+
+@app.route("/answers/delete/<answer_id>/<message_id>/<writer_id>/<category_id>/", methods=["POST"])
+@login_required
+def answers_delete(answer_id, message_id, writer_id, category_id):
+    dele = Answer.query.filter_by(id=answer_id).first()
+    db.session.delete(dele)
+    db.session.commit()
+
+    return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))

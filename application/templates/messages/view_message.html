@@ -80,9 +80,31 @@
       <tr>
         <td>{{ answer.answertext }}</td>
       </tr>
+      {% if current_user.is_authenticated %}
+      {% if current_user.id==answer.account_id %}
+      <td>
+        <form method="POST" action="{{ url_for('answers_delete', 
+        answer_id=answer.id, message_id=message.id, 
+        writer_id=message.account_id, 
+        category_id=category.id) }}">
+          <input type="submit" value="Delete message"/>
+        </form>
+      </td>
+      {% else %}
+        {% if current_user.id==1 %}
+        <td>
+          <form method="POST" action="{{ url_for('answers_delete', answer_id=answer.id) }}">
+            <input type="submit" value="Delete message"/>
+          </form>
+        </td>
+        {% endif %}
+      {% endif %}
+    {% endif %}
     </table>
     <br>
     {% endfor %}
 </ul>
+<br>
+<br>
 </body>
 {% endblock %}

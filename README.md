@@ -8,7 +8,7 @@ Users will be able to
 * [x] add and edit messages
 * [ ] create and edit message categories
 * [ ] filter messages by their category
-* [ ] add answers to other messages
+* [x] add answers to other messages
 * [x] delete their own messages
 * [ ] like or dislike other users' messages
 * [x] get a summary of how many messages each user has written

@@ -1,5 +1,5 @@
 # User manual
-This document will focus on how to use the application. For information related to running it locally on your own computer and setting it up, please refer to the [installation guide]().
+This document will focus on how to use the application. For information related to running it locally on your own computer and setting it up, please refer to the [installation guide](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Installation%20guide.md).
 
 ## Base functionality
 The chat forum allows for users to participate in discussions by writing messages and adding answers to the posted messages.

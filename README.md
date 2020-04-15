@@ -20,6 +20,10 @@ Users will be able to
 
 [Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
 
+[Installation guide](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Installation%20guide.md)
+
+[User manual](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20manual.md)
+
 **Login details for the test account:**
 
 Username: name
@@ -65,3 +69,11 @@ Planned features/notes
 * The option to edit a message has not been added yet.
 * The like function still only exists in the boolean format because there was not enough time for working on it this week. The plan is to make it work similarly to like functions on websites like Facebook and YouTube.
 * I noticed a bug that sometimes causes the order of the messages to change when they are listed. This happens when the like function is used. I will have to look into this.
+
+### Part 5
+Changes/new features
+* Messages are now listed so that only their title and writer are visible. When the title is clicked the user is taken to a different page where they can read the message.
+* The like function has been implemented.
+* Users can now edit their own messages.
+* Users can add ansers to messages posted on the chat forum.
+* Messages can have a category.

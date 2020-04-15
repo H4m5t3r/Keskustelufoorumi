@@ -59,4 +59,4 @@ To create the administrator account, click on the "Create an account" link in th
 After creating the admin account you can sign in using the details you just created the administrator account with. To create the default message category, click on "Add a category" on the top bar. Write "No category" in the text field and click on "Add a new category". This "category" will not appear in the list below the category form so to make sure it was added, click on "Add a message" on the top bar. If the default category was successfully created it should appear as an alternative in the category field.
 
 ## Using the app
-If you completed the steps listed above you should now have set up the application successfully and can start using it. For more information, please refer to the user manual.
+If you completed the steps listed above you should now have set up the application successfully and can start using it. For more information, please refer to the [user manual](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20manual.md).

@@ -11,6 +11,15 @@ Extract the project from the ZIP folder. Now use the terminal to navigate to the
 ```
 python3 -m venv venv
 ```
+After you have created a virtual environment you can start it with the following command:
+```
+source venv/bin/activate
+```
+The virtual environment needs to be activated to run the application. It will be indicated by the text `(venv)` in the terminal like in this example:
+```
+(venv) ~/Keskustelufoorumi$
+```
+
 **Update `pip`, which is used to get the required dependencies**
 ```
 pip install --upgrade pip
@@ -34,7 +43,7 @@ pip install flask-wtf
 ```
 
 ## Run the project
-After all dependencies have been installed you should be able to run the application with the following command:
+After all dependencies have been installed you should be able to run the application.
 ```
 python run.py
 ```

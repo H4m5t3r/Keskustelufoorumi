@@ -10,9 +10,9 @@ class LoginForm(FlaskForm):
         csrf = False
 
 class SignUpForm(FlaskForm):
-    name = StringField("Name", [validators.Length(min=1)])
-    username = StringField("Username", [validators.Length(min=1)])
-    password = PasswordField("Password", [validators.Length(min=8)])
+    name = StringField("Name", [validators.Length(min=1, max=14)])
+    username = StringField("Username", [validators.Length(min=1, max=14)])
+    password = PasswordField("Password", [validators.Length(min=8, max=30)])
 
     def validate_name(self, name):
         user = User.query.filter_by(name=name.data).first()

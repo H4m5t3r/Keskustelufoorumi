@@ -28,9 +28,11 @@
     <th>{{ 'Already existing categories' }}</th>
   </tr>
   {% for category in categories %}
+  {% if not category.id==1 %}
   <tr>
     <td><li>{{ category.name }}</li></td>
   </tr>
+  {% endif %}
   {% endfor %}
 </table>
 <br>

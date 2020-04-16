@@ -77,3 +77,6 @@ Changes/new features
 * Users can now edit their own messages.
 * Users can add ansers to messages posted on the chat forum.
 * Messages can have a category.
+
+Notes
+* Currently there is only one administrator account and it is defined as the account with the ID 1. One possible way of expanding on roles in this application would be to create a new table with roles and make every account have a role ID. Then this number would be passed into all methods instead of the account ID to verify what kind of user it is and what features they should have access to. This would however mean that I would have to include a sixth table in the database, which would exceed the recommended amount of tables in this project.

@@ -85,3 +85,4 @@ Planned features/notes
 * I will add the option to edit categories.
 * Currently answers remain in the database when a post is deleted. I will also change this during the coming weeks.
 * I will have to add an order_by condition in the program so it does not change the order of the messages when someone puts a like on them.
+* I'm going to check if I can edit how the creation date and time is displayed.

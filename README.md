@@ -28,7 +28,7 @@ Users will be able to
 
 Username: name
 
-Password: 123
+Password: 12345678
 
 **Login details for the administrator account:**
 
@@ -78,5 +78,10 @@ Changes/new features
 * Users can add ansers to messages posted on the chat forum.
 * Messages can have a category.
 
-Notes
+Planned features/notes
 * Currently there is only one administrator account and it is defined as the account with the ID 1. One possible way of expanding on roles in this application would be to create a new table with roles and make every account have a role ID. Then this number would be passed into all methods instead of the account ID to verify what kind of user it is and what features they should have access to. This would however mean that I would have to include a sixth table in the database, which would exceed the recommended amount of tables in this project.
+* At the moment answers have titles. I will probably change this so that they only have a text.
+* The now unnecessary boolean liked will be removed from the message table.
+* I will add the option to edit categories.
+* Currently answers remain in the database when a post is deleted. I will also change this during the coming weeks.
+* I will have to add an order_by condition in the program so it does not change the order of the messages when someone puts a like on them.

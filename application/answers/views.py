@@ -23,7 +23,7 @@ def answers_create(message_id):
     if not form.validate():
         return render_template("messages/new.html", form = form)
 
-    a = Answer(form.name.data, form.answertext.data)
+    a = Answer(form.answertext.data)
     a.account_id = current_user.id
     a.message_id = message_id
 

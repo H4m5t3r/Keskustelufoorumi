@@ -9,7 +9,6 @@ class Answer(db.Model):
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
 
-    name = db.Column(db.String(144), nullable=False)
     answertext = db.Column(db.String(144), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
@@ -17,9 +16,7 @@ class Answer(db.Model):
     message_id = db.Column(db.Integer, db.ForeignKey('message.id'),
                            nullable=False)
 
-    def __init__(self, name, answertext):
-        self.name = name
+    def __init__(self, answertext):
         self.answertext = answertext
         self.liked = False
         self.likes = 0
-

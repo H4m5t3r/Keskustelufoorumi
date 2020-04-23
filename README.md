@@ -3,12 +3,12 @@ In this project I will create a chat forum where the user can sign in and send m
 
 ### Planned features:
 Users will be able to
-* [ ] create, edit and delete an account
+* [ ] create an account and edit their password
 * [x] sign in
 * [x] add, edit and delete messages
 * [x] create message categories
 * [ ] filter messages by their category
-* [x] add answers to other messages
+* [x] add answers to messages
 * [x] delete their own messages
 * [x] like or remove their likes from other users' messages
 * [x] get a summary of how many messages each user has written
@@ -81,8 +81,13 @@ Changes/new features
 Planned features/notes
 * Currently there is only one administrator account and it is defined as the account with the ID 1. One possible way of expanding on roles in this application would be to create a new table with roles and make every account have a role ID. Then this number would be passed into all methods instead of the account ID to verify what kind of user it is and what features they should have access to. This would however mean that I would have to include a sixth table in the database, which would exceed the recommended amount of tables in this project.
 * At the moment answers have titles. I will probably change this so that they only have a text.
-* The now unnecessary boolean liked will be removed from the message table.
+* The now unnecessary boolean "liked" will be removed from the message table.
 * I will add the option to edit categories.
 * Currently answers remain in the database when a post is deleted. I will also change this during the coming weeks.
 * I will have to add an order_by condition in the program so it does not change the order of the messages when someone puts a like on them.
 * I'm going to check if I can edit how the creation date and time is displayed.
+
+### Part 6
+Changes/new features
+* I removed the name field that answers used to have.
+* The boolean status "liked" has been removed from the messages.

@@ -3,7 +3,7 @@ In this project I will create a chat forum where the user can sign in and send m
 
 ### Planned features:
 Users will be able to
-* [ ] create an account and edit their password
+* [ ] create an account and change their password
 * [x] sign in
 * [x] add, edit and delete messages
 * [x] create message categories
@@ -91,3 +91,7 @@ Planned features/notes
 Changes/new features
 * I removed the name field that answers used to have.
 * The boolean status "liked" has been removed from the messages.
+* The installation manual now also contains instructions for setting up the app in Heroku.
+* SQL queries were added to the user stories.
+Planned features/notes
+* I may add the option to filter messages by their category and change passwords during the final week.

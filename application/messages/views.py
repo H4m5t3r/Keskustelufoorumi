@@ -73,8 +73,9 @@ def messages_edit(message_id):
 @app.route("/messages/delete/<message_id>/", methods=["POST"])
 @login_required
 def messages_delete(message_id):
-    dele = Message.query.filter_by(id=message_id).first()
-    db.session.delete(dele)
+    answersToDelete = Answer.query.filter_by(message_id=message_id)
+    db.session.delete(Message.query.filter_by(id=message_id).first())
+    answersToDelete.delete()
     db.session.commit()
 
     return redirect(url_for("messages_index"))

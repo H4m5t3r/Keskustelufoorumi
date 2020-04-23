@@ -1,3 +1,5 @@
+## Available features
+
 **As a user I can participate in discussions on the chat forum page.**
 
 **As a user without an account I have limited access to the chat forum's features**

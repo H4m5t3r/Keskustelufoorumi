@@ -9,45 +9,45 @@ Extract the project from the ZIP folder. Now use the terminal to navigate to the
 
 **Create a virtual environment**
 ```
-python3 -m venv venv
+$ python3 -m venv venv
 ```
 After you have created a virtual environment you can start it with the following command:
 ```
-source venv/bin/activate
+$ source venv/bin/activate
 ```
 The virtual environment needs to be activated to run the application. It will be indicated by the text `(venv)` in the terminal like in this example:
 ```
-(venv) ~/Keskustelufoorumi$
+$ (venv) ~/Keskustelufoorumi$
 ```
 Always remember to activate the virtual environment if it it not activated before running the application.
 
 **Update `pip`, which is used to get the required dependencies**
 ```
-pip install --upgrade pip
+$ pip install --upgrade pip
 ```
 
 **Install the project's dependencies**
-The following commands will install required dependencies that the program needs for certain operations. This program uses Flask.
+The following commands will install required dependencies that the program needs for certain operations. This program uses Flask. Please note that all of these commands need to be run in the project folder.
 ```
-pip install Flask
-```
-```
-pip install flask-sqlalchemy
+$ install Flask
 ```
 ```
-pip install flask-bcrypt
+$ pip install flask-sqlalchemy
 ```
 ```
-pip install flask-login
+$ pip install flask-bcrypt
 ```
 ```
-pip install flask-wtf
+$ pip install flask-login
+```
+```
+$ pip install flask-wtf
 ```
 
 ## Run the project
 After all dependencies have been installed you should be able to run the application with the following command:
 ```
-python run.py
+$ python run.py
 ```
 If you open a web browser and go to `http://localhost:5000/` you you should see the starting page with a greeting message.
 
@@ -62,3 +62,38 @@ After creating the admin account you can sign in using the details you just crea
 
 ## Using the app
 If you completed the steps listed above you should now have set up the application successfully and can start using it. For more information, please refer to the [user manual](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20manual.md).
+
+## Setting up the app in Heroku
+
+To set up the app on the remote service Heroku you first need to install Gunicorn with the following command:
+```
+$ pip install gunicorn
+```
+Before you continue, create an account on Heroku and make sure you have the Heroku tools [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed.
+
+Log in on Heroku and create a new app by clicking on "New" in the upper right corner and choose "Create new app". Choose a name for the app, choose your region and click on "Create app". After this, choose the app and click on "Deploy". Scroll down to "Deploy using Heroku Git. There you will find instructions on how to upload the app to Heroku. The steps will also be listed here.
+
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+```
+$ heroku login
+```
+
+### Create a new Git repository
+Initialize a git repository:
+```
+$ git init
+$ heroku git:remote -a *name*
+```
+`*name*` should be replaced with the name you chose for your app.
+
+Then add the project to the repository and push it.
+```
+$ git add .
+$ git commit -am "App pushed to Heroku"
+$ git push heroku master
+```
+Wait for Heroku to finish. After that you should find the application on this website:
+
+https://git.heroku.com/-name-.git
+
+where `-name-` should be replaced with the name you chose. The address should also be displayed in the terminal.

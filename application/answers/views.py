@@ -8,7 +8,6 @@ from application.messages.models import Message
 from application.auth.models import User
 from application.answers.models import Answer
 from application.answers.forms import AnswerForm, EditAnswerForm
-from application.messages.forms import UserFilterForm
 
 @app.route("/answers/new/<message_id>", methods=["GET", "POST"])
 @login_required

@@ -7,7 +7,7 @@ To download this project, click on the green "Clone or download"-button that can
 ## Unpacking and setting up the project
 Extract the project from the ZIP folder. Now use the terminal to navigate to the extracted folder. You should now be in the folder "Keskustelufoorumi-master". Use the commands below to install a virtual environment and the required dependencies to be able to run the project. If you do not have Python installed, please download it from the [Python downloads page](https://www.python.org/downloads/).
 
-**Creating a virtual environment**
+**Create a virtual environment**
 ```
 python3 -m venv venv
 ```
@@ -19,13 +19,15 @@ The virtual environment needs to be activated to run the application. It will be
 ```
 (venv) ~/Keskustelufoorumi$
 ```
+Always remember to activate the virtual environment if it it not activated before running the application.
 
 **Update `pip`, which is used to get the required dependencies**
 ```
 pip install --upgrade pip
 ```
 
-**Installing the project's dependencies**
+**Install the project's dependencies**
+The following commands will install required dependencies that the program needs for certain operations. This program uses Flask.
 ```
 pip install Flask
 ```
@@ -43,11 +45,11 @@ pip install flask-wtf
 ```
 
 ## Run the project
-After all dependencies have been installed you should be able to run the application.
+After all dependencies have been installed you should be able to run the application with the following command:
 ```
 python run.py
 ```
-If you open up a web browser and go to `http://localhost:5000/` you you should see the starting page with a greeting message.
+If you open a web browser and go to `http://localhost:5000/` you you should see the starting page with a greeting message.
 
 ## Setting up the app
 Once the app is running you have to set up the administrator account and create the default message category "No category".

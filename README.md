@@ -5,8 +5,8 @@ In this project I will create a chat forum where the user can sign in and send m
 Users will be able to
 * [ ] create, edit and delete an account
 * [x] sign in
-* [x] add and edit messages
-* [ ] create and edit message categories
+* [x] add, edit and delete messages
+* [x] create message categories
 * [ ] filter messages by their category
 * [x] add answers to other messages
 * [x] delete their own messages

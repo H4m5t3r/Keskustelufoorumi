@@ -10,7 +10,6 @@ from application.likes.models import Like
 from application.answers.models import Answer
 from application.categories.models import Category
 from application.messages.forms import MessageForm, EditMessageForm
-from application.messages.forms import UserFilterForm
 
 @app.route("/likes/like/<message_id>", methods=["GET", "POST"])
 def likes_like(message_id):

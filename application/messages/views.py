@@ -9,7 +9,6 @@ from application.auth.models import User
 from application.categories.models import Category
 from application.answers.models import Answer
 from application.messages.forms import MessageForm, EditMessageForm
-from application.messages.forms import UserFilterForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
@@ -23,33 +22,6 @@ def messages_view_message(message_id, writer_id, category_id):
     category = Category.query.filter_by(id=category_id).first(), 
     answers = Answer.query.filter_by(message_id=message_id),
     answerwriters = User.query.all())
-
-#YET TO BE COMPLETED
-
-@app.route("/messages/filter/user/")
-def messages_filteruser_form():
-    return render_template("messages/filteruserform.html", form = UserFilterForm())
-
-@app.route("/messages/filter/user", methods=["GET", "POST"])
-def messages_filteruser():
-    form = UserFilterForm(request.form)
-
-    if not form.validate():
-        return render_template("messages/filteruserform.html", form = form)
-    
-    number = form.user.data
-
-    order = text(SELECT )
-
-
-    person = User.query.filter_by(id=number).first()
-    
-    message = Message.query.filter_by(account_id=person.id)
-
-    return render_template("messages/filteruser.html", message)
-
-####
-
 
 
 @app.route("/messages/new/")

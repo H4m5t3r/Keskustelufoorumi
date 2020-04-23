@@ -25,4 +25,4 @@ This feature requires the user to be signed in. When this button is clicked the 
 This feature requires the user to be signed in. When this button is clicked the user will be taken to a form where they can create a new message category that will appear as an alternative when writing a message.
 
 ## Administrators
-As an administrator you have the option to delete a message or answer even if it has not been written by you. You do, however, not have access to editing other users' messages.
+As an administrator you have the option to delete a message or answer even if it has not been written by you. You cannot, however, edit other users' messages.

@@ -25,10 +25,3 @@ class EditMessageForm(FlaskForm):
 
     class Meta:
         csrf = False
-
-
-class UserFilterForm(FlaskForm):
-    user = StringField("Name of the user", [validators.Length(min=1)])
- 
-    class Meta:
-        csrf = False

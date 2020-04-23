@@ -40,26 +40,6 @@ def messages_edit_form(message_id):
     return render_template("messages/edit.html", form = preset, message_id = m.id)
 
 
-@app.route("/messages/like/<message_id>/", methods=["POST"])
-@login_required
-def messages_set_liked(message_id):
-
-    t = Message.query.get(message_id)
-    t.liked = True
-    db.session().commit()
-  
-    return redirect(url_for("messages_index"))
-
-@app.route("/messages/unlike/<message_id>/", methods=["POST"])
-@login_required
-def messages_set_unlike(message_id):
-
-    t = Message.query.get(message_id)
-    t.liked = False
-    db.session().commit()
-  
-    return redirect(url_for("messages_index"))
-
 @app.route("/messages/", methods=["POST"])
 @login_required
 def messages_create():

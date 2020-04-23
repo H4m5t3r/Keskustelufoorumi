@@ -51,28 +51,54 @@ query_factory = lambda: models.Category.query.all()
 
 As a signed in user I can edit my own messages.
 ```
-
+form = EditMessageForm(request.form)
+edit = Message.query.filter_by(id=message_id).first()
+edit.messagetext = form.messagetext.data
+edit.category_id = request.form['category_id']
+db.session().commit()
 ```
 
 As a signed in user I can increase the number of likes a message has by one by liking it or remove my like from it if I have already liked it.
 
 ```
-
+message = Message.query.filter_by(id=message_id).first()
+l = Like.query.filter_by(message_id=message_id, account_id=current_user.id).first()
+    if l:
+        db.session.delete(l)
+        message.likes = message.likes - 1
+        db.session.commit()
+    else:
+        l = Like(current_user.id, message_id)
+        db.session.add(l)
+        message.likes = message.likes + 1
+        db.session.commit()
 ```
 
 As a signed in user I can add answers to messages.
 ```
-
+form = AnswerForm(), message_id = message_id
+```
+```
+a = Answer(form.name.data, form.answertext.data)
+a.account_id = current_user.id
+a.message_id = message_id
+db.session().add(a)
+db.session().commit()
 ```
 
 As a signed in user I can delete my own messages.
 ```
-
+dele = Message.query.filter_by(id=message_id).first()
+db.session.delete(dele)
+db.session.commit()
 ```
 
 As a signed in user I can create new message categories.
 ```
-
+t = Category(form.name.data)
+t.account_id = current_user.id  
+db.session().add(t)
+db.session().commit()
 ```
 
 
@@ -80,7 +106,9 @@ As a signed in user I can create new message categories.
 
 As an administrator I can delete messages even if I am not the one who posted them.
 ```
-
+dele = Message.query.filter_by(id=message_id).first()
+db.session.delete(dele)
+db.session.commit()
 ```
 
 ## Planned features

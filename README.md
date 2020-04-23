@@ -93,6 +93,7 @@ Changes/new features
 * The boolean status "liked" has been removed from the messages.
 * The installation manual now also contains instructions for setting up the app in Heroku.
 * SQL queries were added to the user stories.
+* Messages are now listed from newest to oldest.
 Planned features/notes
 * I may add the option to filter messages by their category, change passwords during the final week.
 * Error messages could also be added if I have the time.

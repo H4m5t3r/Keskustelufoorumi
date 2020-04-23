@@ -89,7 +89,7 @@ $ heroku git:remote -a *name*
 Then add the project to the repository and push it.
 ```
 $ git add .
-$ git commit -am "App pushed to Heroku"
+$ git commit -am "initial commit"
 $ git push heroku master
 ```
 Wait for Heroku to finish. After that you should find the application on this website:
@@ -97,3 +97,12 @@ Wait for Heroku to finish. After that you should find the application on this we
 https://git.heroku.com/-name-.git
 
 where `-name-` should be replaced with the name you chose. The address should also be displayed in the terminal.
+
+Add the Heroku app to the local application
+```
+heroku config:set HEROKU=1
+```
+and create a Heroku database
+```
+heroku addons:add heroku-postgresql:hobby-dev
+```

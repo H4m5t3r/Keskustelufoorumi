@@ -12,7 +12,7 @@ from application.messages.forms import MessageForm, EditMessageForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
-    return render_template("messages/list.html", message = Message.query.all(), account = User.query.all())
+    return render_template("messages/list.html", message = Message.query.order_by(Message.id.desc()), account = User.query.all())
 
 @app.route("/messages/view/<message_id>/<writer_id>/<category_id>", methods=["GET"])
 def messages_view_message(message_id, writer_id, category_id):

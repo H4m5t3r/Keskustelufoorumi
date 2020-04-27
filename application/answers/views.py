@@ -21,7 +21,7 @@ def answers_create(message_id):
     form = AnswerForm(request.form)
 
     if not form.validate():
-        return render_template("messages/new.html", form = form)
+        return render_template("answers/new.html", form = form, message_id = message_id)
 
     a = Answer(form.answertext.data)
     a.account_id = current_user.id

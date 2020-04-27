@@ -63,6 +63,10 @@ def messages_create():
 @login_required
 def messages_edit(message_id):
     form = EditMessageForm(request.form)
+    if not form.validate():
+        m = Message.query.filter_by(id=message_id).first()
+        return render_template("messages/edit.html", form = form, message_id = m.id)
+    
     edit = Message.query.filter_by(id=message_id).first()
     edit.messagetext = form.messagetext.data
     edit.category_id = request.form['category_id']

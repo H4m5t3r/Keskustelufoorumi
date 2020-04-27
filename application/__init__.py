@@ -55,10 +55,15 @@ def load_user(user_id):
 
 try:
     db.create_all()
+    # Adding the administrator account
+    hashed_password = bcrypt.generate_password_hash("unlimitedpower").decode('utf-8')
+    u = User("Administrator", "admin", hashed_password)
+    db.session().add(u)
+    db.session().commit()
     # Adding the first category
-    #c = Category("No category")
-    #c.account_id = 1
-    #db.session.add(c)
-    #db.session.commit()
+    c = Category("No category")
+    c.account_id = 1
+    db.session.add(c)
+    db.session.commit()
 except:
     pass

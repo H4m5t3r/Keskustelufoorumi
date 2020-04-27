@@ -34,6 +34,9 @@ from application.answers import views
 from application.likes import models
 from application.likes import views
 
+#Separate
+from application.categories.models import Category
+
 #login
 from application.auth.models import User
 from os import urandom
@@ -52,5 +55,10 @@ def load_user(user_id):
 
 try:
     db.create_all()
+    # Adding the first category
+    #c = Category("No category")
+    #c.account_id = 1
+    #db.session.add(c)
+    #db.session.commit()
 except:
     pass

@@ -21,6 +21,9 @@
         </tr>
     </table>
     <p>{{ message.messagetext }}</p>
+    {% if message.date_created != message.date_modified %}
+    <p>(Edited {{message.date_modified}})</p>
+    {% endif %}
     <p>Likes: {{ message.likes }}</p>
     <table>
         {% if current_user.is_authenticated %}

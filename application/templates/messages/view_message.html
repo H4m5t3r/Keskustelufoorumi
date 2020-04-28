@@ -81,6 +81,14 @@
       </tr>
       {% if current_user.is_authenticated %}
       {% if current_user.id==answer.account_id %}
+      </table>
+      <table>
+      <td>
+        <form method="POST" action="{{ url_for('answers_edit_form', 
+        answer_id=answer.id) }}">
+          <input type="submit" value="Edit"/>
+        </form>
+      </td>
       <td>
         <form method="POST" action="{{ url_for('answers_delete', 
         answer_id=answer.id, message_id=message.id, 

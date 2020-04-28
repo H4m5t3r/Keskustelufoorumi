@@ -14,6 +14,15 @@ from application.answers.forms import AnswerForm, EditAnswerForm
 def answers_form(message_id):
     return render_template("answers/new.html", form = AnswerForm(), message_id = message_id)
 
+@app.route("/answers/edit/<answer_id>", methods=["GET", "POST"])
+@login_required
+def answers_edit_form(answer_id):
+    a = Answer.query.filter_by(id=answer_id).first()
+    preset = AnswerForm()
+    preset.answertext.data = a.answertext
+    
+    return render_template("answers/edit.html", form = preset, answer_id = answer_id)
+
 
 @app.route("/answers/<message_id>", methods=["POST"])
 @login_required
@@ -41,3 +50,15 @@ def answers_delete(answer_id, message_id, writer_id, category_id):
     db.session.commit()
 
     return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))
+
+@app.route("/answers/editconfirm/<answer_id>", methods=["POST"])
+@login_required
+def answers_edit(answer_id):
+    form = AnswerForm(request.form)
+    if not form.validate():
+        return render_template("answers/edit.html", form = form, answer_id = answer_id)
+    
+    answer = Answer.query.filter_by(id=answer_id).first()
+    answer.answertext = form.answertext.data
+    db.session.commit()
+    return redirect(url_for("messages_index"))

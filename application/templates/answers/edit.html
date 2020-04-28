@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+<ul>
+<form method="POST" action="{{ url_for('answers_edit', answer_id=answer_id) }}">
+  <table>
+    
+    <tr>
+      <td>{{ form.answertext.label }}</td>
+      <td>{{ form.answertext }}</td>
+      <td>
+        <ul>
+          {% for error in form.answertext.errors %}
+          <li>{{ error }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="Confirm changes"/>
+      </td>
+    </tr>
+</form>
+</ul>
+</body>
+{% endblock %}

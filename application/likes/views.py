@@ -17,23 +17,23 @@ def likes_like(message_id):
     l = Like.query.filter_by(message_id=message_id, account_id=current_user.id).first()
     if l:
         db.session.delete(l)
-        message.likes = message.likes - 1
         db.session.commit()
         return render_template("messages/view_message.html", 
         message = message, 
         account = User.query.filter_by(id=message.account_id).first(), 
         category = Category.query.filter_by(id=message.category_id).first(), 
         answers = Answer.query.filter_by(message_id=message_id),
-        answerwriters = User.query.all())
+        answerwriters = User.query.all(), 
+        likes = Like.query.filter_by(message_id=message_id).count())
 
     else:
         l = Like(current_user.id, message_id)
         db.session.add(l)
-        message.likes = message.likes + 1
         db.session.commit()
         return render_template("messages/view_message.html", 
         message = message, 
         account = User.query.filter_by(id=message.account_id).first(), 
         category = Category.query.filter_by(id=message.category_id).first(), 
         answers = Answer.query.filter_by(message_id=message_id),
-        answerwriters = User.query.all())
+        answerwriters = User.query.all(), 
+        likes = Like.query.filter_by(message_id=message_id).count())

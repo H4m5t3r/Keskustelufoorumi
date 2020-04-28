@@ -24,7 +24,11 @@
     {% if message.date_created != message.date_modified %}
     <p>(Edited {{message.date_modified}})</p>
     {% endif %}
-    <p>Likes: {{ message.likes }}</p>
+    {% if likes %}
+    <p>Likes: {{ likes }}</p>
+    {% else %}
+    <p>Likes: 0</p>
+    {% endif %}
     <table>
         {% if current_user.is_authenticated %}
         <td>

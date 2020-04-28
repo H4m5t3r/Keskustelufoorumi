@@ -8,6 +8,7 @@ from application.messages.models import Message
 from application.auth.models import User
 from application.categories.models import Category
 from application.answers.models import Answer
+from application.likes.models import Like
 from application.messages.forms import MessageForm, EditMessageForm
 
 @app.route("/messages", methods=["GET"])
@@ -21,7 +22,8 @@ def messages_view_message(message_id, writer_id, category_id):
     account = User.query.filter_by(id=writer_id).first(), 
     category = Category.query.filter_by(id=category_id).first(), 
     answers = Answer.query.filter_by(message_id=message_id),
-    answerwriters = User.query.all())
+    answerwriters = User.query.all(), 
+    likes = Like.query.filter_by(message_id=message_id).count())
 
 
 @app.route("/messages/new/")
@@ -68,10 +70,13 @@ def messages_edit(message_id):
         return render_template("messages/edit.html", form = form, message_id = m.id)
     
     edit = Message.query.filter_by(id=message_id).first()
-    edit.messagetext = form.messagetext.data
-    edit.category_id = request.form['category_id']
-    db.session().commit()
-    return redirect(url_for("messages_index"))
+    if edit.messagetext == request.form['messagetext'] and edit.category_id == request.form['category_id']:
+        return redirect(url_for("messages_index"))
+    else:
+        edit.messagetext = form.messagetext.data
+        edit.category_id = request.form['category_id']
+        db.session().commit()
+        return redirect(url_for("messages_index"))
 
 
 @app.route("/messages/delete/<message_id>/", methods=["POST"])

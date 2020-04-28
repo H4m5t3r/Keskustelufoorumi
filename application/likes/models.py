@@ -1,8 +1,7 @@
 from application import db
+from application.models import Base
 
-class Like(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True)
+class Like(Base):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)

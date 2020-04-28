@@ -7,7 +7,7 @@ Users will be able to
 * [x] sign in
 * [x] add, edit and delete messages
 * [x] create message categories
-* [ ] filter messages by their category
+* [x] filter messages by their category
 * [x] add answers to messages
 * [x] delete their own messages
 * [x] like or remove their likes from other users' messages

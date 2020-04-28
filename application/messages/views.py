@@ -94,5 +94,12 @@ def messages_delete(message_id):
 def messages_count():
     return render_template("/messages/count.html", users=User.count_messages())
 
+@app.route('/messages/filter')
+def messages_filter():
+    return render_template("/messages/filter.html", categories = Category.query.all())
 
-
+@app.route('/messages/filter/<category_id>')
+def messages_filter_category(category_id):
+    category = Category.query.filter_by(id = category_id).first()
+    messages = Message.query.filter_by(category_id = category.id)
+    return render_template("/messages/list.html", message = messages.order_by(Message.id.desc()), account = User.query.all())

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul>
+    <h2>Filter by category</h2>
+    <p>Choose a category from the existing categories:</p>
+    {% for category in categories %}
+        {% if category.id != 1 %}
+        <li><a href="{{ url_for('messages_filter_category', category_id = category.id) }}">{{ category.name }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+<br>
+<br>
+{% endblock %}

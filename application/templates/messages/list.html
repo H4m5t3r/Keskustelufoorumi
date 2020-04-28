@@ -3,6 +3,7 @@
 {% block body %}
 <ul>
   <li><a href="{{ url_for('messages_count') }}">Count how many messages each user has written</a></li>
+  <li><a href="{{ url_for('messages_filter') }}">Filter the messages by a category</a></li>
 <br>
 <h3>Messages</h3>
     {% for message in message %}

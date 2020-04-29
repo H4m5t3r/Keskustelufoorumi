@@ -11,7 +11,7 @@
 <h3>Messages</h3>
 {% endif %}
   <hr>
-    {% for message in message %}
+    {% for message in message.items %}
     <table>
     <tr>
       <td><a href="{{ url_for('messages_view_message', 
@@ -28,8 +28,19 @@
       {% endfor %}
       <td>{{ message.date_created }}</td>
     </tr>
-  </table>
-  <hr>
+    </table>
+    <hr>
+    {% endfor %}
+    {% for page_num in message.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if message.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('messages_index', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('messages_index', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+      ...
+      {% endif %}
     {% endfor %}
 </ul>
 <br>

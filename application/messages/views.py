@@ -13,16 +13,19 @@ from application.messages.forms import MessageForm, EditMessageForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
-    return render_template("messages/list.html", message = Message.query.order_by(Message.id.desc()), 
+    page = request.args.get("page", 1, type=int)
+    message = Message.query.order_by(Message.id.desc()).paginate(page = page, per_page=6)
+    return render_template("messages/list.html", message = message, 
     account = User.query.all(), filtered = False)
 
 @app.route("/messages/view/<message_id>/<writer_id>/<category_id>", methods=["GET"])
 def messages_view_message(message_id, writer_id, category_id):
+    answers = Answer.query.filter_by(message_id=message_id).order_by(Answer.id.desc())
     return render_template("messages/view_message.html", 
     message = Message.query.filter_by(id=message_id).first(), 
     account = User.query.filter_by(id=writer_id).first(), 
     category = Category.query.filter_by(id=category_id).first(), 
-    answers = Answer.query.filter_by(message_id=message_id),
+    answers = answers,
     answerwriters = User.query.all(), 
     likes = Like.query.filter_by(message_id=message_id).count())
 

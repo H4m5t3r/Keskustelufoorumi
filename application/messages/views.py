@@ -20,7 +20,8 @@ def messages_index():
 
 @app.route("/messages/view/<message_id>/<writer_id>/<category_id>", methods=["GET"])
 def messages_view_message(message_id, writer_id, category_id):
-    answers = Answer.query.filter_by(message_id=message_id).order_by(Answer.id.desc())
+    page = request.args.get("page", 1, type=int)
+    answers = Answer.query.filter_by(message_id=message_id).order_by(Answer.id.desc()).paginate(page = page, per_page=5)
     return render_template("messages/view_message.html", 
     message = Message.query.filter_by(id=message_id).first(), 
     account = User.query.filter_by(id=writer_id).first(), 

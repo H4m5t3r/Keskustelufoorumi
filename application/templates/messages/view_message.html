@@ -67,7 +67,7 @@
     <br>
 
     <h4>Answers</h4>
-    {% for answer in answers %}
+    {% for answer in answers.items %}
     <table>
       {% for writer in answerwriters %}
       {% if writer.id == answer.account_id %}
@@ -117,6 +117,20 @@
     {% endif %}
     </table>
     <hr>
+    {% endfor %}
+
+    {% for page_num in answers.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if answers.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('messages_view_message', message_id=message.id, 
+          writer_id=message.account.id, category_id=category.id, page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('messages_view_message', message_id=message.id, 
+          writer_id=message.account_id, category_id=message.category_id, page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+      ...
+      {% endif %}
     {% endfor %}
 </ul>
 <br>

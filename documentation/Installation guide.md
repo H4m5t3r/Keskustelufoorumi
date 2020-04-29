@@ -78,6 +78,7 @@ If you haven't already, log in to your Heroku account and follow the prompts to 
 $ heroku login
 ```
 
+
 ### Create a new Git repository
 Initialize a git repository:
 ```

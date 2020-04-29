@@ -13,7 +13,8 @@ from application.messages.forms import MessageForm, EditMessageForm
 
 @app.route("/messages", methods=["GET"])
 def messages_index():
-    return render_template("messages/list.html", message = Message.query.order_by(Message.id.desc()), account = User.query.all())
+    return render_template("messages/list.html", message = Message.query.order_by(Message.id.desc()), 
+    account = User.query.all(), filtered = False)
 
 @app.route("/messages/view/<message_id>/<writer_id>/<category_id>", methods=["GET"])
 def messages_view_message(message_id, writer_id, category_id):
@@ -107,4 +108,5 @@ def messages_filter():
 def messages_filter_category(category_id):
     category = Category.query.filter_by(id = category_id).first()
     messages = Message.query.filter_by(category_id = category.id)
-    return render_template("/messages/list.html", message = messages.order_by(Message.id.desc()), account = User.query.all())
+    return render_template("/messages/list.html", message = messages.order_by(Message.id.desc()), 
+    account = User.query.all(), filtered = True, category = category.name)

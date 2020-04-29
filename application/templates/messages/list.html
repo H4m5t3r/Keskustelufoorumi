@@ -5,7 +5,12 @@
   <li><a href="{{ url_for('messages_count') }}">Count how many messages each user has written</a></li>
   <li><a href="{{ url_for('messages_filter') }}">Filter the messages by a category</a></li>
 <br>
+{% if filtered %}
+<h3>Category: {{ category }}</h3>
+{% else %}
 <h3>Messages</h3>
+{% endif %}
+  <hr>
     {% for message in message %}
     <table>
     <tr>
@@ -24,7 +29,7 @@
       <td>{{ message.date_created }}</td>
     </tr>
   </table>
-      <hr>
+  <hr>
     {% endfor %}
 </ul>
 <br>

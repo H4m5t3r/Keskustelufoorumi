@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<body>
+<ul>
+    <a href="{{ url_for('messages_view_message', message_id=message.id, writer_id = account.id, category_id = category.id) }}"><— Back</a>
+    <h4>Users who have liked this post:</h4>
+    {% for name in names %}
+    {% if name.name == account.name %}
+    <hr>
+    <p>You</p>
+    <hr>
+    {% endif %}
+    {% endfor %}
+
+    {% for name in names %}
+    {% if name.name != account.name %}
+    <p>name.name</p>
+    <hr>
+    {% endif %}
+    {% endfor %}
+</ul>
+<br>
+<br>
+</body>
+{% endblock %}

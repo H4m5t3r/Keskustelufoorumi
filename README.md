@@ -3,7 +3,7 @@ In this project I will create a chat forum where the user can sign in and send m
 
 ### Planned features:
 Users will be able to
-* [ ] create an account and change their password
+* [x] create an account and change their password
 * [x] sign in
 * [x] add, edit and delete messages
 * [x] create message categories

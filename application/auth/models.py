@@ -46,3 +46,15 @@ class User(Base):
             response.append({"name":row[0], "messages":row[1]})
 
         return response
+
+    @staticmethod
+    def people_who_have_liked():
+        stmt = text("SELECT Account.name FROM Account WHERE Account.id "
+        "IN (SELECT Like.account_id FROM Like) ORDER BY Account.name")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"name":row[0]})
+
+        return response

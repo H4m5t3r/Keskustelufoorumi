@@ -26,6 +26,14 @@ def messages_view_message(message_id, writer_id, category_id):
     answerwriters = User.query.all(), 
     likes = Like.query.filter_by(message_id=message_id).count())
 
+@app.route("/messages/view/<message_id>/<writer_id>/<category_id>/likes", methods=["GET"])
+def messages_view_likes(message_id, writer_id, category_id):
+    return render_template("messages/view_likes.html", 
+    message = Message.query.filter_by(id=message_id).first(), 
+    account = User.query.filter_by(id=writer_id).first(), 
+    category = Category.query.filter_by(id=category_id).first(),
+    names = User.people_who_have_liked())
+
 
 @app.route("/messages/new/")
 @login_required

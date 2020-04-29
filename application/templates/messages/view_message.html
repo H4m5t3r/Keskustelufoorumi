@@ -25,7 +25,7 @@
     <p>(Edited {{message.date_modified}})</p>
     {% endif %}
     {% if likes %}
-    <p>Likes: {{ likes }}</p>
+    <p>Likes: {{ likes }} <a href="{{ url_for('messages_view_likes', message_id=message.id, writer_id = account.id, category_id = category.id) }}">View</a></p>
     {% else %}
     <p>Likes: 0</p>
     {% endif %}

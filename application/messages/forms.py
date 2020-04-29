@@ -8,7 +8,7 @@ from application.categories.models import Category
 class MessageForm(FlaskForm):
     name = StringField("Title", [validators.Length(min=1, max=20)])
     
-    messagetext = TextAreaField("Text", [validators.Length(min=1, max=2000)])
+    messagetext = TextAreaField("Text", [validators.Length(min=1, max=1000)])
     
     category_id = QuerySelectField("Category", get_label="name",
         query_factory = lambda: models.Category.query.all())
@@ -18,7 +18,7 @@ class MessageForm(FlaskForm):
 
 
 class EditMessageForm(FlaskForm):
-    messagetext = TextAreaField("Text", [validators.Length(min=1, max=2000)])
+    messagetext = TextAreaField("Text", [validators.Length(min=1, max=600)])
     
     category_id = QuerySelectField("Category", get_label="name",
         query_factory = lambda: models.Category.query.all())

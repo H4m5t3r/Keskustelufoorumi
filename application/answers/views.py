@@ -9,28 +9,28 @@ from application.auth.models import User
 from application.answers.models import Answer
 from application.answers.forms import AnswerForm, EditAnswerForm
 
-@app.route("/answers/new/<message_id>", methods=["GET", "POST"])
+@app.route("/answers/new/<message_id>/<writer_id>/<category_id>", methods=["GET", "POST"])
 @login_required
-def answers_form(message_id):
-    return render_template("answers/new.html", form = AnswerForm(), message_id = message_id)
+def answers_form(message_id, writer_id, category_id):
+    return render_template("answers/new.html", form = AnswerForm(), message_id = message_id, writer_id = writer_id, category_id = category_id)
 
-@app.route("/answers/edit/<answer_id>", methods=["GET", "POST"])
+@app.route("/answers/edit/<answer_id>/<message_id>/<writer_id>/<category_id>", methods=["GET", "POST"])
 @login_required
-def answers_edit_form(answer_id):
+def answers_edit_form(answer_id, message_id, writer_id, category_id):
     a = Answer.query.filter_by(id=answer_id).first()
     preset = AnswerForm()
     preset.answertext.data = a.answertext
     
-    return render_template("answers/edit.html", form = preset, answer_id = answer_id)
+    return render_template("answers/edit.html", form = preset, answer_id = answer_id, message_id = message_id, writer_id = writer_id, category_id = category_id)
 
 
-@app.route("/answers/<message_id>", methods=["POST"])
+@app.route("/answers/<message_id>/<writer_id>/<category_id>", methods=["POST"])
 @login_required
-def answers_create(message_id):
+def answers_create(message_id, writer_id, category_id):
     form = AnswerForm(request.form)
 
     if not form.validate():
-        return render_template("answers/new.html", form = form, message_id = message_id)
+        return render_template("answers/new.html", form = form, message_id = message_id, writer_id = writer_id, category_id = category_id)
 
     a = Answer(form.answertext.data)
     a.account_id = current_user.id
@@ -39,7 +39,7 @@ def answers_create(message_id):
     db.session().add(a)
     db.session().commit()
   
-    return redirect(url_for("messages_index"))
+    return redirect(url_for("messages_view_message", message_id=message_id, writer_id = writer_id, category_id = category_id))
 
 
 @app.route("/answers/delete/<answer_id>/<message_id>/<writer_id>/<category_id>/", methods=["POST"])
@@ -51,14 +51,14 @@ def answers_delete(answer_id, message_id, writer_id, category_id):
 
     return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))
 
-@app.route("/answers/editconfirm/<answer_id>", methods=["POST"])
+@app.route("/answers/editconfirm/<answer_id>/<message_id>/<writer_id>/<category_id>", methods=["POST"])
 @login_required
-def answers_edit(answer_id):
+def answers_edit(answer_id, message_id, writer_id, category_id):
     form = AnswerForm(request.form)
     if not form.validate():
-        return render_template("answers/edit.html", form = form, answer_id = answer_id)
+        return render_template("answers/edit.html", form = form, answer_id = answer_id, message_id=message_id, writer_id=writer_id, category_id=category_id)
     
     answer = Answer.query.filter_by(id=answer_id).first()
     answer.answertext = form.answertext.data
     db.session.commit()
-    return redirect(url_for("messages_index"))
+    return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))

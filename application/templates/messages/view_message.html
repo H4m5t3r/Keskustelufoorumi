@@ -15,11 +15,7 @@
           <td><p>{{ account.name }}  {{ message.date_created }}</p></td>
         </tr>
     </table>
-    <table>
-        <tr>
-            
-        </tr>
-    </table>
+    
     <p>{{ message.messagetext }}</p>
     {% if message.date_created != message.date_modified %}
     <p>(Edited {{message.date_modified}})</p>
@@ -37,7 +33,7 @@
           </form>
         </td>
         <td>
-          <form method="POST" action="{{ url_for('answers_form', message_id=message.id) }}">
+          <form method="POST" action="{{ url_for('answers_form', message_id=message.id, writer_id = account.id, category_id = category.id) }}">
             <input type="submit" value="Add an answer"/>
           </form>
         </td>
@@ -67,6 +63,7 @@
     <br>
 
     <h4>Answers</h4>
+    <hr>
     {% for answer in answers.items %}
     <table>
       {% for writer in answerwriters %}
@@ -90,7 +87,7 @@
       <table>
       <td>
         <form method="POST" action="{{ url_for('answers_edit_form', 
-        answer_id=answer.id) }}">
+        answer_id=answer.id, message_id=message.id, writer_id = account.id, category_id=category.id) }}">
           <input type="submit" value="Edit"/>
         </form>
       </td>

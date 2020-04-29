@@ -8,7 +8,7 @@ from application.categories.forms import CategoryForm
 @app.route("/categories/new/")
 @login_required
 def categories_form():
-    return render_template("categories/new.html", form = CategoryForm(), categories = Category.query.all())
+    return render_template("categories/new.html", form = CategoryForm(), categories = Category.query.order_by(Category.name))
 
 @app.route("/categories/", methods=["POST"])
 @login_required
@@ -16,7 +16,7 @@ def categories_create():
     form = CategoryForm(request.form)
 
     if not form.validate():
-        return render_template("categories/new.html", form = form)
+        return render_template("categories/new.html", form = form, categories = Category.query.order_by(Category.name))
 
     t = Category(form.name.data)
     t.account_id = current_user.id

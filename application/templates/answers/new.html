@@ -3,7 +3,7 @@
 {% block body %}
 <body>
 <ul>
-<form method="POST" action="{{ url_for('answers_create', message_id=message_id) }}">
+<form method="POST" action="{{ url_for('answers_create', message_id=message_id, writer_id = writer_id, category_id = category_id) }}">
   <table>
     
     <tr>

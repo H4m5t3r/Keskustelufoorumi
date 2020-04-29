@@ -48,9 +48,9 @@ class User(Base):
         return response
 
     @staticmethod
-    def people_who_have_liked():
+    def people_who_have_liked(message_id):
         stmt = text("SELECT Account.name FROM Account WHERE Account.id "
-        "IN (SELECT Like.account_id FROM Like) ORDER BY Account.name")
+        "IN (SELECT Like.account_id FROM Like WHERE Like.message_id = :message_id) ORDER BY Account.name").params(message_id=message_id)
         res = db.engine.execute(stmt)
 
         response = []

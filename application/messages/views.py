@@ -36,7 +36,7 @@ def messages_view_likes(message_id, writer_id, category_id):
     message = Message.query.filter_by(id=message_id).first(), 
     account = User.query.filter_by(id=writer_id).first(), 
     category = Category.query.filter_by(id=category_id).first(),
-    names = User.people_who_have_liked())
+    names = User.people_who_have_liked(message_id))
 
 
 @app.route("/messages/new/")
@@ -119,6 +119,7 @@ def messages_filter():
 @app.route('/messages/filter/<category_id>')
 def messages_filter_category(category_id):
     category = Category.query.filter_by(id = category_id).first()
-    messages = Message.query.filter_by(category_id = category.id)
-    return render_template("/messages/list.html", message = messages.order_by(Message.id.desc()), 
+    page = request.args.get("page", 1, type=int)
+    messages = Message.query.filter_by(category_id = category.id).order_by((Message.id.desc()))
+    return render_template("/messages/list.html", message = messages.paginate(page = page, per_page=6), 
     account = User.query.all(), filtered = True, category = category.name)

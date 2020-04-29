@@ -79,6 +79,11 @@
       <tr>
         <td>{{ answer.answertext }}</td>
       </tr>
+      {% if answer.date_created != answer.date_modified %}
+      <tr>  
+        <td>(Edited {{answer.date_modified}})</td>
+      </tr>
+      {% endif %}
       {% if current_user.is_authenticated %}
       {% if current_user.id==answer.account_id %}
       </table>

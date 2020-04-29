@@ -12,7 +12,8 @@ class LoginForm(FlaskForm):
 class SignUpForm(FlaskForm):
     name = StringField("Name", [validators.Length(min=1, max=14)])
     username = StringField("Username", [validators.Length(min=1, max=14)])
-    password = PasswordField("Password", [validators.Length(min=8, max=30)])
+    password = PasswordField("Password", [validators.Length(min=8, max=30), validators.EqualTo('confirmPassword', message='Passwords must match')])
+    confirmPassword = PasswordField("Confirm password")
 
     def validate_name(self, name):
         user = User.query.filter_by(name=name.data).first()

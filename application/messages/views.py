@@ -83,8 +83,13 @@ def messages_edit(message_id):
 @login_required
 def messages_delete(message_id):
     answersToDelete = Answer.query.filter_by(message_id=message_id)
-    db.session.delete(Message.query.filter_by(id=message_id).first())
     answersToDelete.delete()
+
+    likesToDelete = Like.query.filter_by(message_id=message_id)
+    likesToDelete.delete()
+    
+    db.session.delete(Message.query.filter_by(id=message_id).first())
+    
     db.session.commit()
 
     return redirect(url_for("messages_index"))

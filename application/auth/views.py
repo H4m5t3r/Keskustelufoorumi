@@ -1,9 +1,9 @@
 from flask import render_template, request, redirect, url_for, flash
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user, login_required
 
 from application import app, db, bcrypt
 from application.auth.models import User
-from application.auth.forms import LoginForm, SignUpForm
+from application.auth.forms import LoginForm, SignUpForm, ChangePasswordForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -11,7 +11,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # possible validations
     user = User.query.filter_by(username=form.username.data).first()
     if user and bcrypt.check_password_hash(user.password, form.password.data):
         login_user(user)
@@ -20,9 +19,6 @@ def auth_login():
     else:
         return render_template("auth/loginform.html", form = form,
                                 error = "No such username or password")
-
-
-    
 
 
 @app.route("/auth/logout")
@@ -51,3 +47,21 @@ def auth_create():
     flash('Your account was successfully created')
     return redirect(url_for("auth_login"))
 
+@app.route("/auth/changepassword/form")
+@login_required
+def auth_change_password_form():
+    return render_template("auth/change_password.html", form = ChangePasswordForm())
+
+@app.route("/auth/changepassword/confirm", methods = ["GET", "POST"])
+@login_required
+def auth_change_password():
+    form = ChangePasswordForm(request.form)
+    if not form.validate():
+        return render_template("auth/change_password.html", form = form)
+    
+    hashed_password = bcrypt.generate_password_hash(form.newPassword.data).decode('utf-8')
+    account = User.query.filter_by(id=current_user.id).first()
+    account.password = hashed_password
+    db.session.commit()
+    
+    return render_template("auth/change_password.html", form = ChangePasswordForm())

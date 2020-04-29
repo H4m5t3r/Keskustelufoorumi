@@ -30,3 +30,10 @@ class SignUpForm(FlaskForm):
     
     class Meta:
         csrf = False
+
+class ChangePasswordForm(FlaskForm):
+    newPassword = PasswordField('New password', [validators.Length(min=8, max=30), validators.EqualTo('newPasswordConfirm', message='Passwords must match')])
+    newPasswordConfirm = PasswordField('Confirm your new password')
+
+    class Meta:
+        csrf = False

@@ -2,7 +2,7 @@
 
 For some reason reason the view_likes function that lets users see who has liked a message does not work in Heroku. It works locally but when it is used in Heroku the user gets an error message. The page looks like this when it works:
 
-![view_likes]()
+![view_likes](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/view_likes%20demo.png)
 
 Features that could be added to improve the user experience:
 

@@ -8,6 +8,11 @@ As a user I can list all the posted messages.
 SELECT * FROM Message;
 ```
 
+As a user I can get a summary of how many messages each user has written.
+```
+SELECT Account.name, COUNT(Message.id) FROM Account LEFT JOIN Message ON Message.account_id = Account.id GROUP BY Account.id
+```
+
 As a user I can filter messages by their category.
 ```
 SELECT * FROM Message WHERE Message.category_id = :category_id
@@ -43,9 +48,14 @@ As a user I can see who has liked a message.
 SELECT Account.name from Account WHERE Account.id IN (SELECT Like.account_id WHERE Like.message_id = :message_id)
 ```
 
-As a user I can create an account to be able to post messages on the chat forum.
+As a user I can create an account to gain access to more features on the chat forum.
 ```
 INSERT INTO Account (name, username, password) VALUES (:name, :username, :hashed_password)
+```
+
+As a user I can log in with my login details.
+```
+SELECT * FROM Account WHERE Account.username = :logged_in_username
 ```
 
 ### **As a user with an account I have access to more features**
@@ -70,7 +80,7 @@ As a signed in user I can edit my own messages.
 UPDATE message SET date_modified=CURRENT_TIMESTAMP, messagetext=:new_messageText, category_id=:new_category_id WHERE message.id = :message_id;
 ```
 
-As a signed in user I can delete my own answers.
+As a signed in user I can delete my own messages.
 ```
 DELETE FROM Message WHERE Message.id = :message_to_delete
 ```

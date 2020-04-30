@@ -1,6 +1,8 @@
 # Chat forum
 In this project I have created a chat forum where the user can sign in and send messages. The chat forum is built with Flask and uses bootstrap assets. It can be run both locally and uploaded to the online service Heroku. When the program is run locally it uses SQLite to maintain the databases and in Heroku it uses PostgreSQL.
 
+This project was created as part of the course "Aineopintojen harjoitustyö: Tietokantasovellus" at the University of Helsinki.
+
 ### Features:
 Users will be able to
 * [x] create an account and change their password
@@ -20,6 +22,8 @@ There is also an administrator account, which in some cases can access more feat
 [User stories](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20stories.md)
 
 [Database diagram](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Database%20diagram.png)
+
+[CREATE TABLE sentences](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/CREATE%20TABLE%20sentences.md)
 
 [Heroku app](https://tsoha-k2020-keskustelufoorumi.herokuapp.com/)
 

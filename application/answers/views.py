@@ -46,6 +46,9 @@ def answers_create(message_id, writer_id, category_id):
 @login_required
 def answers_delete(answer_id, message_id, writer_id, category_id):
     dele = Answer.query.filter_by(id=answer_id).first()
+    if not dele.account_id == current_user.id and not current_user.id == 1:
+        return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))
+    
     db.session.delete(dele)
     db.session.commit()
 
@@ -59,6 +62,9 @@ def answers_edit(answer_id, message_id, writer_id, category_id):
         return render_template("answers/edit.html", form = form, answer_id = answer_id, message_id=message_id, writer_id=writer_id, category_id=category_id)
     
     answer = Answer.query.filter_by(id=answer_id).first()
+    if not answer.account_id == current_user.id:
+        return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))
+    
     answer.answertext = form.answertext.data
     db.session.commit()
     return redirect(url_for("messages_view_message", message_id=message_id, writer_id=writer_id, category_id=category_id))

@@ -12,6 +12,7 @@ from application.categories.models import Category
 from application.messages.forms import MessageForm, EditMessageForm
 
 @app.route("/likes/like/<message_id>", methods=["GET", "POST"])
+@login_required
 def likes_like(message_id):
     page = request.args.get("page", 1, type=int)
     answers = Answer.query.filter_by(message_id=message_id).order_by(Answer.id.desc()).paginate(page = page, per_page=5)

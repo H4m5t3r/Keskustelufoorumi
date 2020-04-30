@@ -27,6 +27,10 @@ There is also an administrator account, which in some cases can access more feat
 
 [User manual](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20manual.md)
 
+[Limitations and potential expansions](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Limitations%20and%20potential%20expansions.md)
+
+[Weekly reports from when the chat forum was being worked on](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/Weekly%20reports.md)
+
 **Login details for the test account:**
 
 Username: name

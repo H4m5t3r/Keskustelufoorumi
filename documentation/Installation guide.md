@@ -19,7 +19,7 @@ The virtual environment needs to be activated to run the application. It will be
 ```
 $ (venv) ~/Keskustelufoorumi$
 ```
-Always remember to activate the virtual environment if it it not activated before running the application.
+Always remember to activate the virtual environment before running the application. Otherwise it will not start.
 
 **Update `pip`, which is used to get the required dependencies**
 ```
@@ -27,6 +27,7 @@ $ pip install --upgrade pip
 ```
 
 **Install the project's dependencies**
+
 The following commands will install required dependencies that the program needs for certain operations. This program uses Flask. Please note that all of these commands need to be run in the project folder.
 ```
 $ install Flask
@@ -52,13 +53,7 @@ $ python run.py
 If you open a web browser and go to `http://localhost:5000/` you you should see the starting page with a greeting message.
 
 ## Setting up the app
-Once the app is running you have to set up the administrator account and create the default message category "No category".
-
-**IMPORTANT: The administrator account is defined as the account with the ID 1, which means that the first account that is created automatically becomes the administrator. You can set the name and username to whatever you want but make sure that you do not create any other accounts before this account has been created. The same goes for the default category "No category".**
-
-To create the administrator account, click on the "Create an account" link in the upper right corner on the chat forum. Fill in the account details and click on "Create account".
-
-After creating the admin account you can sign in using the details you just created the administrator account with. To create the default message category, click on "Add a category" on the top bar. Write "No category" in the text field and click on "Add a new category". This "category" will not appear in the list below the category form so to make sure it was added, click on "Add a message" on the top bar. If the default category was successfully created it should appear as an alternative in the category field.
+Once the app is running you can log in with the administrator account's login details. This account is created automatically as well as a default message category called "No category". You can find the administrator account's login details on the project's [front page](https://github.com/H4m5t3r/Keskustelufoorumi). Note that you should change the password after logging in if you plan to use the app with other people since anyone with the password can access the administrator account. Once you have signed in this can be done by clicking on "Change password" in the upper right corner.
 
 ## Using the app
 If you completed the steps listed above you should now have set up the application successfully and can start using it. For more information, please refer to the [user manual](https://github.com/H4m5t3r/Keskustelufoorumi/blob/master/documentation/User%20manual.md).
@@ -69,9 +64,9 @@ To set up the app on the remote service Heroku you first need to install Gunicor
 ```
 $ pip install gunicorn
 ```
-Before you continue, create an account on Heroku and make sure you have the Heroku tools [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed.
+Before you continue, create an account in Heroku and make sure you have the Heroku tools [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed.
 
-Log in on Heroku and create a new app by clicking on "New" in the upper right corner and choose "Create new app". Choose a name for the app, choose your region and click on "Create app". After this, choose the app and click on "Deploy". Scroll down to "Deploy using Heroku Git. There you will find instructions on how to upload the app to Heroku. The steps will also be listed here.
+Log in to Heroku and create a new app by clicking on "New" in the upper right corner and choose "Create new app". Choose a name for the app, choose your region and click on "Create app". After this, choose the app and click on "Deploy". Scroll down to "Deploy using Heroku Git. There you will find instructions on how to upload the app to Heroku. The steps will also be listed here.
 
 If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
 ```
